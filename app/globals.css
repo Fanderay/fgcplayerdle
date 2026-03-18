@@ -1,0 +1,277 @@
+:root {
+    --color-color: rgb(218, 218, 218);
+    font-family: JetBrains Mono, SF Mono, Monaco, Consolas, monospace;
+}
+
+nextjs-portal {
+  display: none;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container > h1{
+  margin-bottom: 0px;
+}
+.home-container > h4{
+  margin-top: 0px;
+}
+
+body {
+    background-color: rgb(32, 32, 32);
+    color: rgb(252, 252, 252);
+    overflow: auto;
+}
+
+
+.game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.game-board-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+
+}
+
+.game-board {
+  display: grid;
+  
+    
+  font-weight: bold;
+  text-align: center;
+  grid-template-columns: repeat(6, 1fr) 2fr;
+  gap:3px;
+  max-width: 1600px;
+
+}
+
+.game-board > div  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid white;
+
+  min-height: 100px;
+}
+
+
+.board-item.achievements.guessed  {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.board-item.achievements > div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  text-wrap: nowrap;
+  align-items: center;
+  
+}
+
+.board-item.achievements > div > img {
+  height: 1.3rem;
+  width: auto
+}
+
+
+.board-item.games {
+  display: flex;
+  flex-direction: column;
+  text-wrap: nowrap;
+  gap: 5px;
+}
+
+
+.board-item.teams.guessed {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.board-item.teams ul {
+  align-self: flex-start;
+  color: rgb(255, 255, 255);
+  margin: 0px 0px 5px 0px;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.board-item.teams ul > li {
+  text-align: left;
+  margin: 0px;
+  text-wrap: nowrap;
+}
+
+
+
+.board-item.earnings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-item.earnings > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+
+img:hover::after { content: attr(alt); }
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-select-container {
+  color: black !important;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  max-width: 500px;
+  width: 100%;
+}
+.submit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.submit-container > button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  
+}
+
+
+.setting-modal {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-inline: auto; 
+    width: 100%;
+    height: 80%;
+    min-width: fit-content;
+    background-color: rgb(36, 36, 36);
+    border-radius: 20px;
+    border: 1px solid rgb(180, 180, 180);
+    padding: 20px;
+    max-height: 100vh;
+    overflow: auto;
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.setting-button-container {
+  display: flex;
+  gap: 5px;
+}
+
+.setting-games-container{
+  max-width: 100%;
+}
+
+.setting-games-container > div {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr)
+
+}
+
+.setting-games-container > div > div {
+  display: flex;
+  flex-direction: row;
+  text-wrap: nowrap;
+  align-items: flex-start;
+}
+
+
+.winner-modal {
+    position: absolute; 
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-inline: auto; 
+    width: fit-content;
+    background-color: rgb(36, 36, 36);
+    border-radius: 20px;
+    border: 1px solid rgb(180, 180, 180);
+    padding: 20px 20px;
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+    
+}
+
+.winner-modal .player-img{
+    height: 200px;
+    width: auto;
+}
+
+
+.winner-modal h3{
+    margin: 0px;
+}
+
+
+.winner-modal a{
+    color: rgb(0, 153, 241);
+}
+
+.answer-tourney-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 30px
+}
+
+.answer-player-info:not(.answer-trophy-collection) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer-trophy-collection {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 40px;
+}
+
+.tourney-img{
+    height: 30px;
+    width: auto;
+}
