@@ -1,0 +1,50 @@
+.player-select-modal-container {
+  position: fixed;
+  min-width: 200px;
+  width: 50%;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(36, 36, 36);
+  border-radius: 10px;
+  border: 2px solid rgb(104, 104, 104);
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-select-modal-container > h4 {
+  margin: 0px 0px;
+}
+
+.player-select-modal-container .player-img{
+  height: auto;
+  max-width: 400px;
+  width: auto;
+  max-height: 400px;
+}
+
+.player-select-modal-container > h4 {
+  margin: 0px 0px;
+}
+
+.player-select-modal-button-container{
+   display: flex;
+   flex-direction: row;
+   gap: 5px;
+}
+
+.player-select-modal-button-container > button{
+   padding: 5px 10px;
+   font-size: 18px;
+}
+
+.player-select-selection-container {
+  color: black;
+  width: 100%;
+}

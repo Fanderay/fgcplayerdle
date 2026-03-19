@@ -6,6 +6,8 @@ import playerDatas from "../../datas/playerData.json"
 import { uniqBy } from "lodash";
 import Select from "react-select";
 
+import "./style.css"
+
 export default function PlayerSelect({
   onChange,
   currentPlayer
@@ -20,6 +22,9 @@ export default function PlayerSelect({
     setCurVal(value)
   }
 
+  useEffect(() => {
+    if (currentPlayer === null) setCurVal(null)
+  }, [currentPlayer])
 
 
   useEffect(() => {

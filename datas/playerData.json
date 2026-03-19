@@ -1266,6 +1266,27 @@
     "age": 32
   },
   {
+    "teamHistory": [],
+    "nationality": [
+      "Australia"
+    ],
+    "years active": [
+      2017,
+      2025
+    ],
+    "approx. total winnings": 4203,
+    "games": [
+      "Street Fighter"
+    ],
+    "achievements": [],
+    "hasPlayerImage": true,
+    "canonicalPlayerName": "FREESER",
+    "playerName": "FREESER",
+    "romanized name": null,
+    "teams": [],
+    "age": 27
+  },
+  {
     "teamHistory": [
       "Invictus Gaming",
       "PUNK WORKSHOP"
