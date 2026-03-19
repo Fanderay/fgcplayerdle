@@ -3,7 +3,7 @@ import { BoardGridPrompts } from "@/types/gridPrompt";
 import { PlayerData } from "@/types/player";
 import { validateGridAnswer } from "@/util/validateAnswer";
 import { cloneDeep, fill } from "lodash";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import GridGameBoard from "../GridGameBoard/GridGameBoard";
 import PlayerSelectModal from "../PlayerSelectModal/PlayerSelectModal";
 import "./style.css";
@@ -420,9 +420,13 @@ export default function GridGame() {
     // Players disallowed from selection since they have been selected before. Based on their canonical name value
     const [removedPlayers, setRemovedPlayers] = useState<string[]>([])
 
-    const handleGridClick = (rowIndex: number, colIndex: number) => {
-        setCurSelectedGrid([rowIndex, colIndex])
-    }
+    const handleGridClick = useCallback((rowIndex: number, colIndex: number) => {
+        //Disallow selecting other grid while one is open.
+        if (curSelectedGrid.every(g => !g)) {
+          setCurSelectedGrid([rowIndex, colIndex])
+        }
+        
+    }, [curSelectedGrid])
 
     const handlePlayerSelect = (player: PlayerData) => {
 
@@ -465,7 +469,6 @@ export default function GridGame() {
     useEffect(() => {
         if (attemptsRemaining <= 0) {
             setIsLose(true)
-            console.log("losa")
         }
     }, [attemptsRemaining])
 
@@ -476,7 +479,6 @@ export default function GridGame() {
                 return !p ? false : validateGridAnswer(p, gridPrompt.rowPrompts[rowIndex], gridPrompt.columnPrompts[colIndex])
             }))
         ) {
-            console.log("winna")
             setIsWin(true)
         }
     }, [attemptsRemaining, boardState])

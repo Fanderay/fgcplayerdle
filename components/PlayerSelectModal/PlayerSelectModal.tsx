@@ -71,7 +71,7 @@ export default function PlayerSelectModal({
 
 
   return (
-    <div className = "player-select-modal-container" style ={{visibility: `${isOpen && !disabled ? "visible" : "hidden"}`}}>
+    <div className = {"player-select-modal-container " + (isOpen && !disabled ? "visible" : "hidden") }>
       <h4>Choose a player</h4>
       <div className="player-select-selection-container">
         <PlayerSelect
@@ -82,7 +82,7 @@ export default function PlayerSelectModal({
       
       {
         curPlayer ?
-        <div>
+        <div className = "player-select-image-container">
           {
             curPlayer.hasPlayerImage ? <Image height= {200} width = {100} alt={curPlayer.playerName} src = {playerImageUrl} unoptimized className="player-img" /> : <div>Player does not have an image</div>
           }
