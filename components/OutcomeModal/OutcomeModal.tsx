@@ -17,6 +17,7 @@ export default function OutcomeModal({
                 Hi, I've only created one board so far. Check back in the future once this is done
             </div>
 
+
             <div>
                 Maybe some kind of stat about your chosen players.
             </div>

@@ -404,7 +404,7 @@ const testBoardState = [
 ]
 */
 
-const attempts = 1
+const attempts = 5
 
 export default function GridGame() {
     const [gridPrompt, setGridPrompt] = useState<BoardGridPrompts>(generatePromptGrid(3,3))

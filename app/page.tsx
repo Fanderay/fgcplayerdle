@@ -26,10 +26,6 @@ export default function Home() {
 
 
 //griddle
-// same team as player
-// min earning
-// has won X
-// nationality
-// active
-// game
-// team
+// animation for correct/incorrect
+// animation for win/lose -> fly in from bottom / confetti
+// selector -> fly in from top
