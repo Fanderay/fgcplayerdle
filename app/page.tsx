@@ -9,7 +9,7 @@ export default function Home() {
   const [showOldGame, setShowOldGame] = useState(false)
   return (
     <div className = "home-container">
-      <h1>FGC Playerdle</h1>
+      <h1>FGC Playerdle (Beta)</h1>
       <h4>Guessing game for FGC pros</h4>
       {/*<button onClick = {() => setShowOldGame(s => !s)}>{!showOldGame ? "Try proof of concept game mode": "Return to normal game mode"}</button>*/}
       {

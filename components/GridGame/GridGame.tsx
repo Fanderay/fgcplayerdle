@@ -15,7 +15,7 @@ const generateBoardState = (rowLength: number, columnLength: number) => {
   return fill(new Array(columnLength), fill(new Array(rowLength), null))
 }
 
-
+/*
 const testBoardState = [
   [
     {
@@ -402,14 +402,14 @@ const testBoardState = [
     }
   ]
 ]
-
+*/
 
 const attempts = 1
 
 export default function GridGame() {
     const [gridPrompt, setGridPrompt] = useState<BoardGridPrompts>(generatePromptGrid(3,3))
 
-    const [boardState, setBoardState] = useState<(PlayerData|null)[][]>(testBoardState /*generateBoardState(gridPrompt.columnPrompts.length, gridPrompt.rowPrompts.length)*/)
+    const [boardState, setBoardState] = useState<(PlayerData|null)[][]>(generateBoardState(gridPrompt.columnPrompts.length, gridPrompt.rowPrompts.length))
 
     const [isWin, setIsWin] = useState(false)
     const [isLose, setIsLose] = useState(false)
