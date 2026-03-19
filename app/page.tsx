@@ -28,5 +28,4 @@ export default function Home() {
 //griddle
 // animation for correct/incorrect
 // animation for win/lose -> fly in from bottom / confetti
-// selector -> fly in from top
 // more boards lol
