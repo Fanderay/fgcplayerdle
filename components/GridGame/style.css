@@ -21,6 +21,15 @@
     transition: background-color 0.2s ease-out 0s;
 }
 
+.grid-game-grid-container  a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.grid-game-grid-container  a:hover {
+    text-decoration: underline;
+}
+
 .grid-game-grid-image-container {
     width: 90%;
 

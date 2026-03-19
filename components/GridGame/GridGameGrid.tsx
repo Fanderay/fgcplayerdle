@@ -69,7 +69,17 @@ export default function GridGameGrid({
             
 
         
-            <div>{isValid && curAnswer ? curAnswer.playerName : "?"}</div>
+            <div>
+                
+                {
+                    isValid && curAnswer ? 
+                        <a href = {`https://liquipedia.net/fighters/${curAnswer.canonicalPlayerName}`} target="_blank" rel="noopener noreferrer">
+                            {curAnswer.playerName}
+                        </a>
+                        : 
+                        "?"
+                 }
+            </div>
         </div>
 
 
