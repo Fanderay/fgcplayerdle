@@ -3,7 +3,7 @@ import { BoardGridPrompts } from "@/types/gridPrompt";
 import { PlayerData } from "@/types/player";
 import { validateGridAnswer } from "@/util/validateAnswer";
 import { cloneDeep, fill } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, Fragment } from "react";
 import GridGameBoard from "../GridGameBoard/GridGameBoard";
 import PlayerSelectModal from "../PlayerSelectModal/PlayerSelectModal";
 import "./style.css";
@@ -507,10 +507,10 @@ export default function GridGame() {
                     />
                     {
                         gridPrompt.rowPrompts.slice(1).map(({title}, index) => {
-                            return <>
-                            <div className = "grid-game-header row" key = {index}>{title}</div>
+                            return <Fragment key = {index}>
+                            <div className = "grid-game-header row" >{title}</div>
                             <div className = "grid-game-board-empty"/>
-                            </>
+                            </Fragment>
                         })
                     }
  

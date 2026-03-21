@@ -1,10 +1,15 @@
 import { GridPrompt , BoardGridPrompts} from "@/types/gridPrompt";
 import { PlayerData } from "@/types/player";
+import {find} from "lodash"
 
 const promptList : GridPrompt[] = [
     {
         "title": "Older than Tokido", 
-        validationFunc: () => true, 
+        validationFunc: (p:PlayerData, allPlayerData: PlayerData[]) => {
+            const tokidoPlayerData = find(allPlayerData, (p: PlayerData) => p.canonicalPlayerName === "Tokido")
+            if (!tokidoPlayerData) return true
+            else return (p.age ?? 0) > (tokidoPlayerData?.age  ?? 0)
+        }, 
         disallowFunc: (p:PlayerData) => {
             if (!p.age) {
                 return { allowed: false, text:"this user does not have an age in their data"}
