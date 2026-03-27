@@ -84,3 +84,35 @@ footer {
   color: rgb(202, 202, 202);
 }
 
+
+
+.shake-text {
+  /* Apply the animation */
+  animation: shake 0.5s infinite;
+  /* Ensure the element is treated as a block for correct positioning */
+  display: inline-block; 
+  color: rgb(255, 0, 0);
+  --shake-length: 2px
+}
+
+/* Define the keyframe animation */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4px); /* Move left 5px */
+  }
+  40% {
+    transform: translateX(4px); /* Move right 5px */
+  }
+  60% {
+    transform: translateX(-4px); /* Move left 5px */
+  }
+  80% {
+    transform: translateX(4px); /* Move right 5px */
+  }
+  100% {
+    transform: translateX(0); /* Return to original position */
+  }
+}

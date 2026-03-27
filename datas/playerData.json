@@ -7296,6 +7296,62 @@
     "playerName": "JWong",
     "romanized name": null,
     "teams": [],
-    "age": 40
+    "age": 27
+  },
+  {
+    "teamHistory": [],
+    "nationality": [
+      "Australia"
+    ],
+    "years active": [
+      2017,
+      2025
+    ],
+    "approx. total winnings": 4203,
+    "games": [
+      "Street Fighter"
+    ],
+    "achievements": [],
+    "hasPlayerImage": true,
+    "canonicalPlayerName": "FREESER",
+    "playerName": "FREESER",
+    "romanized name": null,
+    "teams": [],
+    "age": 27
+  },
+  {
+    "teamHistory": [
+      "Level Up"
+    ],
+    "nationality": [
+      "United States",
+      "Peru"
+    ],
+    "years active": [
+      1996,
+      2024
+    ],
+    "approx. total winnings": 8313,
+    "games": [
+      "Street Fighter",
+      "Street Fighter X Tekken",
+      "Capcom vs. SNK",
+      "Marvel vs. Capcom",
+      "Samurai Shodown",
+      "Persona",
+      "Tekken",
+      "Killer Instinct"
+    ],
+    "achievements": [
+      "B3: Battle by the Bay",
+      "Evolution Championship Series 2000 SFIII3S",
+      "Evolution Championship Series 2000 SFA2"
+    ],
+    "hasPlayerImage": true,
+    "canonicalPlayerName": "Alex_Valle",
+    "playerName": "Alex Valle",
+    "romanized name": null,
+    "teams": [],
+    "age": 47
   }
 ]

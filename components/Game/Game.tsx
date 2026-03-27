@@ -8,6 +8,9 @@ import PlayerSelect from "../PlayerSelect/PlayerSelect";
 import { Settings } from "@/types/settings";
 import SettingModal from "../SettingModal/SettingModal";
 import Image from 'next/image'
+import { encodeBoardTemplate, decodeBoardTemplate } from "@/util/generatePrompts";
+
+
 
 const defaultBoardState = () => {
   return fill(new Array(maxRow), null)

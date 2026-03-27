@@ -15,8 +15,51 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 .outcome-modal > h2, h4 {
     margin: 0px;
 }
+
+
+.outcome-modal .highlight-player {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.outcome-modal .highlight-player .player-img {
+  width: 70%;
+  height: auto;
+
+}
+
+.outcome-modal .highlight-player .highlight-trophy-collection .tourney-img{
+  width: auto;
+  height: 20px;
+}
+
+.outcome-modal .highlight-player .highlight-trophy-collection {
+  display: flex;
+  flex-direction: row;
+  
+  margin-top: 5px;
+  background-color: rgb(236, 236, 236);
+  max-width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  flex-wrap: wrap;
+}
+
+
+.outcome-modal .highlight-player label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+

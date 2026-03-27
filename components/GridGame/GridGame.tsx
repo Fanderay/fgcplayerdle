@@ -9,7 +9,7 @@ import PlayerSelectModal from "../PlayerSelectModal/PlayerSelectModal";
 import "./style.css";
 import { generatePromptGrid } from "@/util/generatePrompts";
 import OutcomeModal from "../OutcomeModal/OutcomeModal";
-
+import { decodeBoardTemplate } from "@/util/generatePrompts";
 
 const generateBoardState = (rowLength: number, columnLength: number) => {
   return fill(new Array(columnLength), fill(new Array(rowLength), null))
@@ -402,20 +402,23 @@ const testBoardState = [
     }
   ]
 ]
-*/
+  */
+
 
 const attempts = 5
 
-export default function GridGame() {
-    const [gridPrompt, setGridPrompt] = useState<BoardGridPrompts>(generatePromptGrid(3,3))
 
-    const [boardState, setBoardState] = useState<(PlayerData|null)[][]>(generateBoardState(gridPrompt.columnPrompts.length, gridPrompt.rowPrompts.length))
+export default function GridGame() {
+    const [gridPrompt, setGridPrompt] = useState<BoardGridPrompts>(decodeBoardTemplate("b3A:VG9raWRv?bWU:MTAwMDAw!aXQ:UkVKRUNU|VGVhbSBSRUpFQ1Q?ZmM:SmFwYW4|SmFwYW5lc2U")) //generatePromptGrid(3,3)
+
+    const [boardState, setBoardState] = useState<(PlayerData|null)[][]>(generateBoardState(gridPrompt.columnPrompts.length, gridPrompt.rowPrompts.length)) //
 
     const [isWin, setIsWin] = useState(false)
     const [isLose, setIsLose] = useState(false)
 
     const [curSelectedGrid, setCurSelectedGrid] = useState<number[]|null[]>([null,null])
 
+    const [shakeAttempt, setShakeAttempt] = useState(false)
     const [attemptsRemaining, setAttemptsRemaining] = useState<number>(attempts)
     // Players disallowed from selection since they have been selected before. Based on their canonical name value
     const [removedPlayers, setRemovedPlayers] = useState<string[]>([])
@@ -429,7 +432,7 @@ export default function GridGame() {
     }, [curSelectedGrid])
 
     const handlePlayerSelect = (player: PlayerData) => {
-
+        let timer: any;
         const [rowIndex, colIndex] = curSelectedGrid
         if (rowIndex !== null && colIndex !== null) {
 
@@ -447,15 +450,24 @@ export default function GridGame() {
 
             if (!validateGridAnswer(player, gridPrompt.rowPrompts[rowIndex], gridPrompt.columnPrompts[colIndex])) {
                 setAttemptsRemaining(a => a - 1)
+                setShakeAttempt(true)
+                timer = setTimeout(() => {
+                  setShakeAttempt(false)
+                }, 1000)
             }
             else {
                 setRemovedPlayers(s => [...s, player.canonicalPlayerName])
             }
 
+
         }
 
         
         setCurSelectedGrid([null,null])
+        return () => {
+          clearTimeout(timer);
+          setShakeAttempt(false)
+        };
     }
 
     const handlePlayerCancel = () => {
@@ -486,7 +498,7 @@ export default function GridGame() {
     return (
         <div className="grid-game-container">
             <div>
-                <b>Attempts left:</b> {attemptsRemaining}
+                <b>Attempts left:</b> <span className={shakeAttempt ? "shake-text" : ""}>{attemptsRemaining}</span>
             </div>
             <div className="grid-game-board" style = {{gridTemplateColumns: `repeat(${gridPrompt.columnPrompts.length + 2}, minmax(0px, 1fr))`}}>
                 <div className = "grid-game-board-empty col"/>
@@ -530,6 +542,7 @@ export default function GridGame() {
             <OutcomeModal 
               isWin = {isWin}
               isLose= {isLose}
+              playerList={boardState.flat().filter(p=>p !== null)}
             />
                 
         </div>
