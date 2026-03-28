@@ -21,6 +21,14 @@
     transition: background-color 0.2s ease-out 0s;
 }
 
+.grid-game-attempts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: row;
+}
+
 .grid-game-grid-container  a {
     color: rgb(255, 255, 255);
     text-decoration: none;

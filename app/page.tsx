@@ -1,54 +1,45 @@
 'use client'
 
 import GridGame from "@/components/GridGame/GridGame";
-
-import { decodeBoardTemplate, encodeBoardTemplate } from "@/util/generatePrompts";
-
-  const encodedBoard = encodeBoardTemplate({
-  rowPrompts: [
-    {
-      templateKey: "olderThanPlayer",
-      inputValue: ["Tokido"]
-    },
-    {
-      templateKey: "moreThanEarning",
-      inputValue: [100000]
-    }
-  ],
-  columnPrompts: [
-    {
-      templateKey: "inTeam",
-      inputValue: ["REJECT", "Team REJECT"]
-    },
-    {
-      templateKey: "fromCountry",
-      inputValue: ["Japan", "Japanese"]
-    }
-  ]
-})
-
-console.log("board", encodedBoard)
-
-console.log("decode", decodeBoardTemplate(encodedBoard))
+import { useCallback, useState } from "react";
+import { decodeBoardTemplate } from "@/util/generatePrompts";
+import { BoardGridPrompts } from "@/types/gridPrompt";
+import BoardManagement from "@/components/BoardManagement/BoardManagement";
 
 export default function Home() {
+
+  const [gridPrompt, setGridPrompt] = useState<BoardGridPrompts>(decodeBoardTemplate("b3A:VG9raWRv?bWU:MTAwMDAw!aXQ:UkVKRUNU|VGVhbSBSRUpFQ1Q?ZmM:SmFwYW4|SmFwYW5lc2U")) //generatePromptGrid(3,3)
+
+  const [showBoardManagement, setShowBoardManagement] = useState(true)
+
+  const handleBoardChange = useCallback((boardString: string) => {
+    decodeBoardTemplate(boardString)
+    setShowBoardManagement(false)
+  }, [])
 
   return (
     <div className = "home-container">
       <h1>FGC Playerdle (Beta)</h1>
       <h4>Guessing game for FGC pros</h4>
-      <GridGame/>
+
+      {
+        !showBoardManagement ?
+          <>
+            <button className = "board-browser-button" onClick ={() => setShowBoardManagement(true)}>Browser other boards</button>
+          </>
+          
+          :
+          <BoardManagement onBoardChange = {handleBoardChange} onBack = {() => setShowBoardManagement(false)}/>
+      }
+
+      <GridGame gridPrompt={gridPrompt} style ={{display: showBoardManagement ? "none":"block"}}/>
+      
       <footer>Made by Whale, with no AI. Support ya locals.</footer>
     </div>
   );
 }
 
 
-//griddle
-// animation for win/lose -> fly in from bottom / confetti
-// string based encoding of the board, should be doable
-// your highlighted player: randomly choose a player and display their information.
-// reuse trophjy collection too pog
 
 // anomyous sign in:
 

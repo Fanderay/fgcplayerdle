@@ -72,6 +72,10 @@ nextjs-portal {
   margin-bottom: 20px;
 }
 
+.board-browser-button {
+  margin-bottom: 20px;
+}
+
 body {
     background-color: rgb(32, 32, 32);
     color: rgb(252, 252, 252);
